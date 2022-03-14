@@ -14,7 +14,7 @@ exports.create = async (req, res) => {
   }
 };
 
-exports.list = async (req, res) => {
+exports.listAll = async (req, res) => {
   res.json(await User.find({status: "Active"}).exec());
 };
 
