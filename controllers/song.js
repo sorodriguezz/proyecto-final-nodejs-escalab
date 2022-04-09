@@ -14,10 +14,6 @@ exports.create = async (req, res) => {
   }
 };
 
-exports.listAll = async (req, res) => {
-  res.json(await Song.find({ status: "Active" }).exec());
-};
-
 exports.read = async (req, res) => {
   let song = await Song.findOne({
     slug: req.params.slug,
@@ -35,10 +31,19 @@ exports.update = async (req, res) => {
       { author, duration, category },
       { new: true }
     ).exec();
-
+    
     res.json(updated);
   } catch (err) {
     res.status(400).send(err.message);
+  }
+};
+
+exports.remove = async (req, res) => {
+  try {
+    const deleted = await Song.findOneAndRemove({ slug: req.params.slug });
+    res.json(deleted);
+  } catch (err) {
+    res.status(400).send("Song delete failed");
   }
 };
 
@@ -53,4 +58,46 @@ exports.removeSoft = async (req, res) => {
   } catch (err) {
     res.status(400).send("Song delete failed");
   }
+};
+
+exports.songsCount = async (_req, res) => {
+  let total = await Song.find({ status: "Active" }).estimatedDocumentCount().exec();
+  res.json({total});
+};
+
+exports.listPaginator = async (req, res) => {
+  try {
+    const { sort, order, page } = req.body;
+    const currentPage = page || 1;
+    const perPage = 3;
+
+    const products = await Song.find({ status: "Active" })
+    .skip((currentPage - 1) * perPage)
+    .sort([[sort, order]])
+    .limit(perPage)
+    .exec();
+    
+    res.json({
+      sort,
+      order,
+      perPage,
+      currentPage,
+      products
+    });
+
+  } catch (err) {
+    res.status(400).send("Song list failed");
+  }
+};
+
+exports.listAll = async (_req, res) => {
+  res.json(await Song.find({ status: "Active" }).exec());
+};
+
+exports.listByCount = async (req, res) => {
+  let products = await Song.find({ status: "Active" })
+    .limit(parseInt(req.params.count))
+    .sort([["createdAt", "desc"]])
+    .exec();
+  res.json(products);
 };
