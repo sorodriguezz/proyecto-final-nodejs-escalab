@@ -4,9 +4,13 @@ const morgan = require('morgan');
 const cors = require('cors');
 const { readdirSync } = require('fs');
 
+const {createRoles,createUserAdmin} = require('./libs/initialSetup');
+
 require('dotenv').config();
 
 const app = express();
+createRoles();
+createUserAdmin();
 
 connectDb();
 
