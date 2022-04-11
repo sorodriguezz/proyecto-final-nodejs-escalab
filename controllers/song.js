@@ -71,6 +71,9 @@ exports.listPaginator = async (req, res) => {
     const currentPage = page || 1;
     const perPage = 3;
 
+    let totalSongs = await Song.find({ status: "Active" }).estimatedDocumentCount().exec();
+    totalSongs = Math.ceil(totalSongs / 3);
+
     const products = await Song.find({ status: "Active" })
     .skip((currentPage - 1) * perPage)
     .sort([[sort, order]])
@@ -78,10 +81,8 @@ exports.listPaginator = async (req, res) => {
     .exec();
     
     res.json({
-      sort,
-      order,
       perPage,
-      currentPage,
+      "totalPages": totalSongs,
       products
     });
 
