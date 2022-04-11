@@ -76,7 +76,6 @@ exports.listPaginator = async (req, res) => {
     let totalSongs = await Song.find({ status: "Active" })
       .estimatedDocumentCount()
       .exec();
-    totalSongs = Math.ceil(totalSongs / 3);
 
     const products = await Song.find({ status: "Active" })
       .skip((currentPage - 1) * perPage)
@@ -86,7 +85,7 @@ exports.listPaginator = async (req, res) => {
 
     res.json({
       perPage,
-      totalPages: totalSongs,
+      totalPages: Math.ceil(totalSongs / perPage),
       products,
     });
   } catch (err) {
