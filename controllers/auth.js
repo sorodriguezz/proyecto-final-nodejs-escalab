@@ -17,7 +17,7 @@ exports.signin = async (req, res) => {
 
   if(!matchPassword) return res.status(401).json({token: null, message: "Contraseña o correo incorrectos"});
 
-  const token = jwt.sign({id: userFound._id, roles: userFound.roles}, process.env.SECRET, {
+  const token = jwt.sign({user: userFound.username, email: userFound.email, roles: userFound.roles}, process.env.SECRET, {
     expiresIn: 900,
   });
 
