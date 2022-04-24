@@ -4,7 +4,7 @@ const morgan = require('morgan');
 const cors = require('cors');
 const { readdirSync } = require('fs');
 
-const {createRoles,createUserAdmin} = require('./libs/initialSetup');
+const {createRoles,createUserAdmin} = require('./helpers/initialSetup');
 
 require('dotenv').config();
 
