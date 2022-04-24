@@ -7,7 +7,7 @@ const { create, read, update, remove, removeSoft, songsCount, listPaginator, lis
 router.post("/song", create);
 router.get("/song/:slug", read);
 router.put("/song/:slug", update);
-router.delete("/song/:slug", remove);
+router.delete("/song/:slug", [authJwt.verifyToken, authJwt.isModeratorOrAdmin], remove);
 router.patch("/song/:slug", removeSoft);
 router.get("/songs/total", songsCount);
 router.post("/songs", listPaginator);

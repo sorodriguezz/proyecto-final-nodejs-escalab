@@ -48,7 +48,7 @@ exports.isModerator = async (req, res, next) => {
     return res.status(403).json({error: "No tienes permisos de moderador"});
 };
 
-exports.isModeratorAdmin = async (req, res, next) => {
+exports.isModeratorOrAdmin = async (req, res, next) => {
     const user = await User.findById(req.userId);
     const roles = await Role.find({_id: {$in: user.roles}});
 

@@ -3,21 +3,21 @@ const mongoose = require("mongoose");
 const songSchema = new mongoose.Schema(
   {
     name: {
-        type: String,
-        required: true,
-        trim: true,
+      type: String,
+      required: true,
+      trim: true,
     },
     author: {
-        type: String,
-        require: true,
+      type: String,
+      require: true,
     },
     duration: {
-        type: Number,
-        required: true,
+      type: Number,
+      required: true,
     },
     category: {
-        type: String,
-        required: true,
+      type: String,
+      required: true,
     },
     slug: {
       type: String,
@@ -32,7 +32,10 @@ const songSchema = new mongoose.Schema(
       enum: ["Active", "Inactive"],
     },
   },
-  { timestamps: true }
+  { 
+    timestamps: true,
+    versionKey: false
+  }
 );
 
 module.exports = mongoose.model("Song", songSchema);
