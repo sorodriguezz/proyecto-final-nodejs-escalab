@@ -9,8 +9,10 @@ const {createRoles,createUserAdmin} = require('./libs/initialSetup');
 require('dotenv').config();
 
 const app = express();
-createRoles();
-createUserAdmin();
+
+createRoles()
+    .then(() => createUserAdmin())
+    .catch(error => console.error(error));
 
 connectDb();
 

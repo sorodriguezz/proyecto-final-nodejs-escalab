@@ -28,8 +28,8 @@ exports.createUserAdmin = async () => {
     await Promise.all([
       new User({
         username: "admin",
-        email: "admin@gmail.com",
-        password: await User.encryptPassword("qwerty"),
+        email: process.env.EMAIL_ADMIN,
+        password: await User.encryptPassword(process.env.PASSWORD_ADMIN),
         roles: await Role.find({ name: "admin" })
       }).save()
     ]);
