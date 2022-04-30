@@ -10,6 +10,7 @@
   "author": "Sebastian Rodriguez",
   "license": "ISC",
   "devDependencies": {
+    "morgan": "^1.10.0",
     "nodemon": "^2.0.15"
   },
   "dependencies": {
@@ -17,10 +18,11 @@
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
-    "express-validator": "^5.3.1",
+    "express-validator": "^6.14.0",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.10.2",
-    "morgan": "^1.10.0",
-    "slugify": "^1.4.5"
+    "slugify": "^1.4.5",
+    "swagger-jsdoc": "^6.0.2",
+    "swagger-ui-express": "^4.1.6"
   }
 }

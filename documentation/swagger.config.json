@@ -1,0 +1,41 @@
+{
+  "definition": {
+    "openapi": "3.0.0",
+    "info": {
+      "title": "API Songs",
+      "version": "1.0.0",
+      "description": "API Songs with Node and Express",
+      "termsOfService": "http://example.com/terms/",
+      "contact": {
+        "name": "API Support",
+        "url": "http://example.com/contact/",
+        "email": "s.rodriguezzapata01@gmail.com"
+      }
+    },
+    "servers": [
+      {
+        "url": "http://localhost:8002/api",
+        "description": "API Documentation"
+      },
+      {
+        "url": "http://dominiofinal.com",
+        "description": "Ejemplo de API Prod"
+      }
+    ],
+    "security": [
+      {
+        "apiKey": []
+      }
+    ],
+    "components": {
+      "securitySchemes": {
+        "apiKey": {
+          "type": "apiKey",
+          "in": "header",
+          "name": "Authorization"
+        }
+      }
+    }
+  },
+  "apis": ["./routes/*.js"]
+}
