@@ -6,11 +6,12 @@ exports.verifyToken = async (req, res, next) => {
     const token = req.headers["authorization"];
     try {
         if (!token) return res.status(403).json({error: "No se proporcionó token"});
-
+        
         const decoded = jwt.verify(token, process.env.SECRET);
-
+        
         req.userId = decoded.id;
 
+        console.log(req.userId);
         const user = await User.findById(req.userId, { password: 0 });
         if(!user) return res.status(404).json({error: "Usuario no encontrado"});
 
