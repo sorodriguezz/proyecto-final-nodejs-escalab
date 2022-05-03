@@ -19,20 +19,40 @@ Este repositorio contiene el proyecto final del curso de NodeJS. El proyecto est
 * express: 4.17.1
 * mongoose: 5.10.2
 * slugify: 1.4.5
-* morgan: 1.10.0
+* bcryptjs: 2.4.3
+* express-validator: 6.14.0
+* jsonwebtoken: 8.5.1
+* swagger-jsdoc: 6.0.2
+* swagger-ui-express: 4.1.6
+
 
 ### Librerias de desarrollo:
 * nodemon: 2.0.15
+* morgan: 1.10.0
 
-### Enlaces API
+### EndPoints API
 
-| Ruta                                   | Descripción | Método |
-|:-------------------------------------- |:-----------:|:------:|
-| http://localhost:8002/api/song         |   Create    |  POST  |
-| http://localhost:8002/api/song/ride    |   Remove    | DELETE |
-| http://localhost:8002/api/song/:slug   |   Update    |  PUT   |
-| http://localhost:8002/api/song/:slug   |    Read     |  GET   |
-| http://localhost:8002/api/songs        |   ListAll   |  GET   |
-| http://localhost:8002/api/songs        |   PerPage   |  POST  |
-| http://localhost:8002/api/songs/:count | ListByCount |  GET   |
-| http://localhost:8002/api/songs/total  | CountTotal  |  GET   |
+|                  Ruta                  |      Permiso       |  Tipo  | Método |
+|:--------------------------------------:|:------------------:|:------:|:------:|
+|     http://localhost:8002/api/song     |        ALL         |  Song  |  POST  |
+|  http://localhost:8002/api/song/:slug  | MODERATOR OR ADMIN |  Song  | DELETE |
+|  http://localhost:8002/api/song/:slug  |        ALL         |  Song  |  PUT   |
+|  http://localhost:8002/api/song/:slug  |        ALL         |  Song  |  GET   |
+|    http://localhost:8002/api/songs     |        ALL         |  Song  |  GET   |
+|    http://localhost:8002/api/songs     |        ALL         |  Song  |  POST  |
+| http://localhost:8002/api/songs/:count |        ALL         |  Song  |  GET   |
+| http://localhost:8002/api/songs/total  |        ALL         |  Song  |  GET   |
+| http://localhost:8002/api/songs/:slug  |        ALL         |  Song  | PATCH  |
+|    http://localhost:8002/api/users     | MODERATOR OR ADMIN |  User  |  GET   |
+|     http://localhost:8002/api/user     |       ADMIN        |  User  |  POST  |
+|     http://localhost:8002/api/role     |       ADMIN        |  Role  |  POST  |
+|    http://localhost:8002/api/roles     |       ADMIN        |  Role  |  GET   |
+|  http://localhost:8002/api/role/:slug  |       ADMIN        |  Role  |  GET   |
+|  http://localhost:8002/api/role/:slug  |       ADMIN        |  Role  | PATCH  |
+|    http://localhost:8002/api/signin    |        ALL         |  Auth  |  POST  |
+|    http://localhost:8002/api/verify    |        ALL         |  Auth  |  POST  |
+|    http://localhost:8002/api/signup    |        ALL         |  Auth  |  POST  |
+|    http://localhost:8002/api/artist    |        ALL         | Artist |  POST  |
+|   http://localhost:8002/api/artists    |        ALL         | Artist |  POST  |
+|    http://localhost:8002/api/album     |        ALL         | Album  |  POST  |
+|    http://localhost:8002/api/albums    |        ALL         | Album  |  POST  |
