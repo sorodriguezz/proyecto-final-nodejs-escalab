@@ -19,6 +19,10 @@ const songSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    album: {
+      ref: "Album",
+      type: mongoose.Schema.Types.ObjectId,
+    },
     slug: {
       type: String,
       unique: true,

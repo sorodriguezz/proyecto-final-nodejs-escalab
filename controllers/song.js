@@ -1,10 +1,16 @@
 const Song = require("../models/song");
+const Album = require("../models/album");
+
 const slugify = require("slugify");
 
 exports.create = async (req, res) => {
   try {
     req.body.slug = slugify(req.body.name);
+
+    req.body.album = await Album.findOne({ name: req.body.album });
+
     const newSong = await new Song(req.body).save();
+
     res.json(newSong);
   } catch (err) {
     res.status(400).json({
@@ -23,12 +29,14 @@ exports.read = async (req, res) => {
 };
 
 exports.update = async (req, res) => {
-  const { author, duration, category } = req.body;
-
   try {
+    const { author, duration, category, album } = req.body;
+
+    const { _id } = await Album.findOne({ name: album });
+
     const updated = await Song.findOneAndUpdate(
       { slug: req.params.slug },
-      { author, duration, category },
+      { author, duration, category, album: _id },
       { new: true }
     ).exec();
 
