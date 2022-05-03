@@ -162,5 +162,6 @@ module.exports = router;
  *         author: "Linkin Park"
  *         duration: 187
  *         category: "Rock"
+ *         album: "Hybrid Theory"
  * 
  */
