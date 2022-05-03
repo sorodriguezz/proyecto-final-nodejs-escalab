@@ -8,26 +8,33 @@ exports.createAlbum = async (req, res) => {
     const { name, yearPublication, duration, amountSong, artists } = req.body;
     const slug = slugify(name);
 
-    const newAlbum = new Album({
-      name,
-      yearPublication,
-      duration,
-      amountSong,
-      artists,
-      slug
-    });
+    const newAlbum = new Album(
+      {
+        name,
+        yearPublication,
+        duration,
+        amountSong,
+        artists,
+        slug
+      }
+    );
 
     newAlbum.artists = await Artist.find({ name: artists });
 
     await newAlbum.save();
 
-    res.status(200).json(
-        {
-          message: "Album creado correctamente",
-          newAlbum,
-        }
-    );
+    res.status(200).json({message: "Album creado correctamente", newAlbum,});
+
   } catch (error) {
     res.status(500).json({ error });
   }
 };
+
+exports.listAlbum = async (_req, res) => {
+  try {
+    const albums = await Album.find({ status: "active" });
+    return res.status(200).json(albums);
+  } catch (error) {
+    res.status(500).json({ message: "Error interno del servidor" });
+  }
+}
