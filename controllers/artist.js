@@ -3,7 +3,7 @@ const slugify = require("slugify");
 
 exports.createArtist = async (req, res) => {
   try {
-    const { name, age, website, amountAlbum } = req.body;
+    const { name, age, website } = req.body;
     const slug = slugify(req.body.name);
 
     const locateArtist = await Artist.findOne({ name });
@@ -16,7 +16,6 @@ exports.createArtist = async (req, res) => {
       name,
       age,
       website,
-      amountAlbum,
       slug,
     }).save();
 

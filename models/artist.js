@@ -13,9 +13,6 @@ const artistSchema = new mongoose.Schema(
     website: {
       type: String,
     },
-    amountAlbums: {
-      type: Number
-    },
     status: {
       type: String,
       default: "active",

@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const artistSchema = new mongoose.Schema(
+const albumSchema = new mongoose.Schema(
   {
     name: {
       type: String,
@@ -16,12 +16,17 @@ const artistSchema = new mongoose.Schema(
     amountSongs: {
       type: Number,
     },
-    artist: [
+    artists: [
       {
         ref: "Artist",
         type: mongoose.Schema.Types.ObjectId,
       },
     ],
+    status: {
+      type: String,
+      default: "active",
+      enum: ["active", "inactive"],
+    },
     slug: {
       type: String,
       lowercase: true,
@@ -36,4 +41,4 @@ const artistSchema = new mongoose.Schema(
   }
 );
 
-module.exports = mongoose.model("Artist", artistSchema);
+module.exports = mongoose.model("Album", albumSchema);
