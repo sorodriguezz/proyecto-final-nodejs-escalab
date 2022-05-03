@@ -17,7 +17,7 @@ exports.create = async (req, res) => {
 exports.read = async (req, res) => {
   let song = await Song.findOne({
     slug: req.params.slug,
-    status: "Active",
+    status: "active",
   }).exec();
   res.json(song);
 };
@@ -51,7 +51,7 @@ exports.removeSoft = async (req, res) => {
   try {
     const deleted = await Song.findOneAndUpdate(
       { slug: req.params.slug },
-      { status: "Inactive" },
+      { status: "inactive" },
       { new: true }
     );
     res.json(deleted);
@@ -61,7 +61,7 @@ exports.removeSoft = async (req, res) => {
 };
 
 exports.songsCount = async (_req, res) => {
-  let total = await Song.find({ status: "Active" })
+  let total = await Song.find({ status: "active" })
     .estimatedDocumentCount()
     .exec();
   res.json({ total });
@@ -73,11 +73,11 @@ exports.listPaginator = async (req, res) => {
     const currentPage = page || 1;
     const perPage = 3;
 
-    let totalSongs = await Song.find({ status: "Active" })
+    let totalSongs = await Song.find({ status: "active" })
       .estimatedDocumentCount()
       .exec();
 
-    const products = await Song.find({ status: "Active" })
+    const products = await Song.find({ status: "active" })
       .skip((currentPage - 1) * perPage)
       .sort([[sort, order]])
       .limit(perPage)
@@ -94,11 +94,11 @@ exports.listPaginator = async (req, res) => {
 };
 
 exports.listAll = async (_req, res) => {
-  res.json(await Song.find({ status: "Active" }).exec());
+  res.json(await Song.find({ status: "active" }).exec());
 };
 
 exports.listByCount = async (req, res) => {
-  let products = await Song.find({ status: "Active" })
+  let products = await Song.find({ status: "active" })
     .limit(parseInt(req.params.count))
     .sort([["createdAt", "desc"]])
     .exec();

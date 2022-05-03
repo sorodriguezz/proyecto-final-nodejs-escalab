@@ -155,8 +155,8 @@ module.exports = router;
  *           trim: true
  *         status:
  *           type: String
- *           default: "Active"
- *           enum: ["Active", "Inactive"]
+ *           default: "active"
+ *           enum: ["active", "inactive"]
  *       example:
  *         name: "Numb"
  *         author: "Linkin Park"

@@ -28,8 +28,8 @@ const songSchema = new mongoose.Schema(
     },
     status: {
       type: String,
-      default: "Active",
-      enum: ["Active", "Inactive"],
+      default: "active",
+      enum: ["active", "inactive"],
     },
   },
   { 
