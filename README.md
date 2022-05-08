@@ -36,8 +36,8 @@ POSTMAN: [Postman NodeJS and Express](https://documenter.getpostman.com/view/156
 
 ### EndPoints API
 
-Ruta base DEV: `http://localhost:8002/`
-Ruta base Prod: `https://nodejs-escalab.herokuapp.com`
+* Ruta base DEV: `http://localhost:8002/`
+* Ruta base Prod: `https://nodejs-escalab.herokuapp.com`
 
 |       Ruta        |      Permiso       |  Tipo  | Método |
 |:-----------------:|:------------------:|:------:|:------:|
