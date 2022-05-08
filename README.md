@@ -3,7 +3,8 @@
 Este repositorio contiene el proyecto final del curso de NodeJS. El proyecto esta basado en la versión *4.17.1* de ***Express***.
 
 ### Descripción
-Proyecto en Nodejs con Express que permite crear artistas, album y canciones. Permite listar, buscar, actualizar y eliminar artistas, albums y canciones. De igual manera cuenta con Autenticación de usuarios con JWT. Al ejecutar la aplicacion crea 3 perfiles de usuario; admin, moderator y user. De igual manera este proyecto esta desplegado en Heroku.
+Proyecto en Nodejs con Express que permite crear artistas, album y canciones. Permite listar, buscar, actualizar y eliminar artistas, albums y canciones. De igual manera cuenta con Autenticación de usuarios con JWT. Al ejecutar la aplicacion crea 3 perfiles de usuario; admin, moderator y user. Y un usuario Administrador. 
+Este proyecto esta desplegado en Heroku y la base de datos en Mongo Atlas.
 
 ### Pre-requisitios
 * node 16.x
