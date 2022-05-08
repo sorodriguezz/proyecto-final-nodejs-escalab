@@ -9,6 +9,10 @@ exports.create = async (req, res) => {
 
     req.body.album = await Album.findOne({ name: req.body.album });
 
+    if(req.body.album === null){
+      return res.status(400).json({message: "Album no encontrado"});
+    }
+
     const newSong = await new Song(req.body).save();
 
     res.json(newSong);
@@ -25,6 +29,11 @@ exports.read = async (req, res) => {
     slug: req.params.slug,
     status: "active",
   }).exec();
+
+  if (song === null) {
+    return res.status(400).json({ message: "Song not found" });
+  }
+
   res.json(song);
 };
 
@@ -40,6 +49,10 @@ exports.update = async (req, res) => {
       { new: true }
     ).exec();
 
+    if( updated === null ) {
+      return res.status(400).json({message: "Song not found"});
+    }
+
     res.json(updated);
   } catch (err) {
     res.status(400).send(err.message);
@@ -49,6 +62,11 @@ exports.update = async (req, res) => {
 exports.remove = async (req, res) => {
   try {
     const deleted = await Song.findOneAndRemove({ slug: req.params.slug });
+
+    if(deleted === null) {
+      return res.status(400).json({message: "Song not found"});
+    }
+
     res.json(deleted);
   } catch (err) {
     res.status(400).send("Song delete failed");
@@ -62,6 +80,11 @@ exports.removeSoft = async (req, res) => {
       { status: "inactive" },
       { new: true }
     );
+
+    if( deleted === null ) {
+      return res.status(400).json({message: "Song not found"});
+    }
+    
     res.json(deleted);
   } catch (err) {
     res.status(400).send("Song delete failed");

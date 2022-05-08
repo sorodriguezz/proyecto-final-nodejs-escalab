@@ -3,7 +3,7 @@
 Este repositorio contiene el proyecto final del curso de NodeJS. El proyecto esta basado en la versión *4.17.1* de ***Express***.
 
 ### Descripción
-
+Proyecto en Nodejs con Express que permite crear artistas, album y canciones. Permite listar, buscar, actualizar y eliminar artistas, albums y canciones. De igual manera cuenta con Autenticación de usuarios con JWT. Al ejecutar la aplicacion crea 3 perfiles de usuario; admin, moderator y user. De igual manera este proyecto esta levantado en Heroku.
 
 ### Pre-requisitios
 * node 16.x
@@ -29,6 +29,10 @@ Este repositorio contiene el proyecto final del curso de NodeJS. El proyecto est
 ### Librerias de desarrollo:
 * nodemon: 2.0.15
 * morgan: 1.10.0
+
+### Documentación
+POSTMAN: [https://postman.com/proyecto-nodejs](https://www.getpostman.com/collections/5d0faf72a60243c02e4f)
+
 
 ### EndPoints API
 
@@ -56,3 +60,4 @@ Este repositorio contiene el proyecto final del curso de NodeJS. El proyecto est
 |   http://localhost:8002/api/artists    |        ALL         | Artist |  POST  |
 |    http://localhost:8002/api/album     |        ALL         | Album  |  POST  |
 |    http://localhost:8002/api/albums    |        ALL         | Album  |  POST  |
+|    http://localhost:8002/api/docs/     |        ALL         |   Doc  |  GET   | 

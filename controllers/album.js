@@ -21,6 +21,10 @@ exports.createAlbum = async (req, res) => {
 
     newAlbum.artists = await Artist.find({ name: artists });
 
+    if (newAlbum.artists.length === 0) {
+      return res.status(400).json({ message: "No existe el/los artista(s)" });
+    }
+
     await newAlbum.save();
 
     res.status(200).json({message: "Album creado correctamente", newAlbum,});

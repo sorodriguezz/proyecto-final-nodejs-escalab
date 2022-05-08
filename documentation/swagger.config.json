@@ -18,8 +18,8 @@
         "description": "API Documentation"
       },
       {
-        "url": "http://dominiofinal.com",
-        "description": "Ejemplo de API Prod"
+        "url": "https://nodejs-escalab.herokuapp.com/api/",
+        "description": "API Documentation Production"
       }
     ],
     "security": [
