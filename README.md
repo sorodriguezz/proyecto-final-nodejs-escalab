@@ -34,6 +34,9 @@ Este proyecto esta desplegado en Heroku y la base de datos en Mongo Atlas.
 ### Documentación
 POSTMAN: [Postman NodeJS and Express](https://documenter.getpostman.com/view/15642747/UyxdLpeZ)
 
+### Diagrama
+
+![](https://i.imgur.com/84AqIWU.png)
 
 ### EndPoints API
 
