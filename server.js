@@ -1,6 +1,6 @@
 const express = require('express');
 const connectDb = require('./database');
-// const morgan = require('morgan');
+const morgan = require('morgan');
 const cors = require('cors');
 const { readdirSync } = require('fs');
 const swaggerUI = require('swagger-ui-express');
@@ -19,7 +19,7 @@ createRoles()
 
 connectDb();
 
-// app.use(morgan('dev'));
+app.use(morgan('dev'));
 app.use(express.json({limit: '2mb'}));
 const swaggerDocs = swaggerJsdoc(swaggerConfig);
 app.use("/api/docs", swaggerUI.serve, swaggerUI.setup(swaggerDocs, { explorer: true }));
