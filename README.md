@@ -31,7 +31,7 @@ Proyecto en Nodejs con Express que permite crear artistas, album y canciones. Pe
 * morgan: 1.10.0
 
 ### Documentación
-POSTMAN: [https://postman.com/proyecto-nodejs](https://www.getpostman.com/collections/5d0faf72a60243c02e4f)
+POSTMAN: [Postman NodeJS and Express](https://documenter.getpostman.com/view/15642747/UyxdLpeZ)
 
 
 ### EndPoints API
